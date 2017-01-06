@@ -99,7 +99,8 @@ var player = new Player(200,425);
 var enemyOne = new Enemy(-100,60,100);
 var enemyTwo = new Enemy(-100,140,175);
 var enemyThree = new Enemy(-100,230,125);
-var allEnemies = [enemyOne, enemyTwo, enemyThree];
+var enemyFour = new Enemy(-100, 140, 75);
+var allEnemies = [enemyOne, enemyTwo, enemyThree, enemyFour];
 
 
 // This listens for key presses and sends the keys to your
