@@ -66,7 +66,8 @@ Player.prototype.handleInput = function(keys){
 
       case 'up':
         if (this.y === 25) {
-
+          alert("You win!");
+          this.reset();
         }
         else {
           this.y += - 100;
@@ -81,6 +82,11 @@ Player.prototype.handleInput = function(keys){
         }
         break;
     }
+}
+
+Player.prototype.reset = function() {
+    this.x = 200;
+    this.y = 425;
 }
 
 
