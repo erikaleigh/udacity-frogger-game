@@ -39,7 +39,7 @@ var Player =  function(x, y) {
 };
 
 Player.prototype.update = function(dt) {
-
+  this.checkCollisions();
 };
 
 Player.prototype.render = function() {
@@ -55,7 +55,6 @@ Player.prototype.handleInput = function(keys){
           this.x += - 100;
         }
         break;
-
       case 'right':
         if (this.x === 400) {
         }
@@ -63,7 +62,6 @@ Player.prototype.handleInput = function(keys){
           this.x += + 100;
         }
         break;
-
       case 'up':
         if (this.y === 25) {
           alert("You win!");
@@ -73,7 +71,6 @@ Player.prototype.handleInput = function(keys){
           this.y += - 100;
         }
         break;
-
       case 'down':
         if (this.y === 425) {
         }
@@ -89,6 +86,21 @@ Player.prototype.reset = function() {
     this.y = 425;
 }
 
+Player.prototype.checkCollisions = function() {
+  for (var i = 0; i = allEnemies.length; i++) {
+    var bugs = allEnemies[i];
+    if (bugs.x < this.x + 100 &&
+        bugs.x + 100 > this.x &&
+        bugs.y < this.y + 80 &&
+        80 + bugs.y > this.y){
+          alert("you lose!");
+          this.reset();
+  }
+  // var player = {x: this.x, y: this.y, height: 80, width: 60}
+  // var enemy = {x: bugs.x, y: bugs.y, height: 80, width: 60}
+  checkCollisions();
+  }
+}
 
 
 // Now instantiate your objects.
