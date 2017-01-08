@@ -38,14 +38,15 @@ var Player =  function(x, y) {
   this.y = y;
 };
 
+// Link any Player instances to checkCollisions function
 Player.prototype.update = function(dt) {
   this.checkCollisions();
 };
-
+// Render Player
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-
+// Set boundaries for player so it won't exit canvas, win function
 Player.prototype.handleInput = function(keys){
     switch(keys) {
       case 'left':
@@ -80,12 +81,12 @@ Player.prototype.handleInput = function(keys){
         break;
     }
 }
-
+// Reset function for when the player wins or loses
 Player.prototype.reset = function() {
     this.x = 200;
     this.y = 425;
 }
-
+// Checks for collisions between player and enemy, resets if true
 Player.prototype.checkCollisions = function() {
   for (var i = 0; i < allEnemies.length; i++) {
     var bugs = allEnemies[i];
