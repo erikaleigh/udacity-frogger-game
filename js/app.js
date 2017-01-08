@@ -89,16 +89,13 @@ Player.prototype.reset = function() {
 Player.prototype.checkCollisions = function() {
   for (var i = 0; i < allEnemies.length; i++) {
     var bugs = allEnemies[i];
-      if (bugs.x < this.x + 80 &&
-        bugs.x + 80 > this.x &&
-        bugs.y < this.y + 60 &&
-        60 + bugs.y > this.y){
+      if (bugs.x < this.x + 60 &&
+        bugs.x + 60 > this.x &&
+        bugs.y < this.y + 40 &&
+        40 + bugs.y > this.y){
           alert("you lose!");
           this.reset();
   }
-  // var player = {x: this.x, y: this.y, height: 80, width: 60}
-  // var enemy = {x: bugs.x, y: bugs.y, height: 80, width: 60}
-  // checkCollisions();
   }
 }
 
