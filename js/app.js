@@ -65,7 +65,7 @@ Player.prototype.handleInput = function(keys){
         break;
       case 'up':
         if (this.y === 25) {
-          this.win();
+          this.result();
         }
         else {
           this.y += - 100;
@@ -79,12 +79,12 @@ Player.prototype.handleInput = function(keys){
         }
         break;
     }
-}
+};
 // Reset function for when the player wins or loses
 Player.prototype.reset = function() {
     this.x = 200;
     this.y = 425;
-}
+};
 // Checks for collisions between player and enemy, runs lose function if true
 Player.prototype.checkCollisions = function() {
   for (var i = 0; i < allEnemies.length; i++) {
@@ -93,32 +93,27 @@ Player.prototype.checkCollisions = function() {
         bugs.x + 60 > this.x &&
         bugs.y < this.y + 40 &&
         40 + bugs.y > this.y){
-          this.lose();
+          this.result();
   }
   }
-}
-// Writes "You Win!" if the player reaches the water without collision, runs
-// reset function
-Player.prototype.win = function() {
-  ctx.font = "48px sans serif";
-  ctx.fillText("You Win!", 145, 40);
-  setTimeout( function(){
-    ctx.clearRect(145, 4, 250, 45);  // run this code when the timer finishes
-  }, 1000);  // timer is set for 1000 milliseconds
-  this.reset();
-}
+};
 
-// Writes "Game Over!" if the player loses, runs reset function
-Player.prototype.lose = function() {
+// Writes "You Win!" if the player reaches the water without collision or
+// writes "Game Over!" if the player loses, clears the text, and resets player
+Player.prototype.result = function() {
   ctx.font = "48px sans serif";
   ctx.fillStyle = "red";
-  ctx.fillText("Game Over!", 145, 40);
-  setTimeout ( function() {
+  if (this.y === 25) {
+    ctx.fillText("You Win!", 145, 40);
+  }
+  else {
+      ctx.fillText("Game Over!", 145, 40);
+  }
+  setTimeout( function(){
     ctx.clearRect(145, 4, 250, 45);
   }, 1000);
-  this.reset();
-}
-
+    this.reset();
+};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
