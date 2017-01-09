@@ -102,6 +102,9 @@ Player.prototype.checkCollisions = function() {
 Player.prototype.win = function() {
   ctx.font = "48px sans serif";
   ctx.fillText("You Win!", 145, 40);
+  setTimeout( function(){
+    ctx.clearRect(145, 4, 250, 45);  // run this code when the timer finishes
+  }, 1000);  // timer is set for 1000 milliseconds
   this.reset();
 }
 
@@ -110,11 +113,12 @@ Player.prototype.lose = function() {
   ctx.font = "48px sans serif";
   ctx.fillStyle = "red";
   ctx.fillText("Game Over!", 145, 40);
+  setTimeout ( function() {
+    ctx.clearRect(145, 4, 250, 45);
+  }, 1000);
   this.reset();
 }
 
-// Clear "You Win!" or "Game Over!" text
-  // ctx.clearRect(145, 4, 250, 45);
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
