@@ -46,7 +46,7 @@ Player.prototype.update = function(dt) {
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
-// Set boundaries for player so it won't exit canvas, runs win function if the // player reaches the water
+// Set boundaries for player so it won't exit canvas, runs result function if // the player reaches the water
 Player.prototype.handleInput = function(keys){
     switch(keys) {
       case 'left':
@@ -85,7 +85,8 @@ Player.prototype.reset = function() {
     this.x = 200;
     this.y = 425;
 };
-// Checks for collisions between player and enemy, runs lose function if true
+// Checks for collisions between player and enemy, runs result function upon
+// collision
 Player.prototype.checkCollisions = function() {
   for (var i = 0; i < allEnemies.length; i++) {
     var bugs = allEnemies[i];
@@ -97,9 +98,9 @@ Player.prototype.checkCollisions = function() {
   }
   }
 };
-
 // Writes "You Win!" if the player reaches the water without collision or
 // writes "Game Over!" if the player loses, clears the text, and resets player
+// after one second
 Player.prototype.result = function() {
   ctx.font = "48px sans serif";
   ctx.fillStyle = "red";
