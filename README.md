@@ -1,8 +1,8 @@
 # Frogger-Style Arcade Game
-### For completion of Udacity's Front-End Web Developer Nanodegree
-https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001
+#### For completion of [Udacity's Front-End Web Developer Nanodegree](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001)
 
-###### by Erika LeBlanc 2017
+Udacity's instructions for this project located [here](https://github.com/udacity/frontend-nanodegree-arcade-game).
+
 
 ## To Play:
 
